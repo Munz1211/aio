@@ -3,13 +3,13 @@ clear
 
 domain=$(cat /root/domain)
 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m TROJAN ACCOUNT   \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "━━━━━━━━━━━━━━━━━" | lolcat
+echo -e " TROJAN ACCOUNT  " | lolcat
+echo -e "━━━━━━━━━━━━━━━━━" | lolcat
 read -rp "User: " -e user
 egrep -w "^### $user" /etc/xray/config.json >/dev/null
 if [ $? -eq 0 ]; then
-echo -e "Username Sudah Ada"
+echo -e "Username Sudah Ada" | lolcat
 exit 0
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -24,18 +24,18 @@ trojanlink="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&servi
 trojanlink1="trojan://${uuid}@${domain}:443?path=%2Ftrojan-ws&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
 clear
 echo -e ""
-echo -e "━━━━-TROJAN-━━━━━"
-echo -e "Remarks        : ${user}"
-echo -e "Host/IP        : ${domain}"
-echo -e "port           : 443"
-echo -e "Key            : ${uuid}"
-echo -e "Path           : trojan-grpc"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "GRPC           : ${trojanlink}"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "WS             : ${trojanlink1}"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "Expired On     : $exp"
+echo -e "━━━━-TROJAN-━━━━━" | lolcat
+echo -e "Remarks        : ${user}" | lolcat
+echo -e "Host/IP        : ${domain}" | lolcat
+echo -e "port           : 443" | lolcat
+echo -e "Key            : ${uuid}" | lolcat
+echo -e "Path           : trojan-grpc" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "Trojan WS      : ${trojanlink1}" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "Trojan GRPC    : ${trojanlink}" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "Expired On     : $exp" | lolcat
 echo -e ""
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
