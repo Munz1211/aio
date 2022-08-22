@@ -170,7 +170,7 @@ echo -e "$green          Install XRAY              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://${geovpn}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/Munz1211/aio/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 #install Backup
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install BACKUP         $NC"
