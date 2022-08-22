@@ -59,6 +59,12 @@ clear
 fi
 fi
 
+#install shc
+apt -y install shc
+
+# install wget and curl
+apt -y install wget curl
+
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install Tools SC   $NC"
