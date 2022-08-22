@@ -37,13 +37,13 @@ print_sum() {
 
 DATA=$(apidata $1)
 echo ""
-echo "============================="
-echo "------USAGE USER XRAY--------"
-echo "============================="
+echo "=============================" | lolcat
+echo "------USAGE USER XRAY--------" | lolcat
+echo "=============================" | lolcat
 echo ""
-print_sum "$DATA" "user"
+print_sum "$DATA" "user" | lolcat
 echo ""
-echo "============================="
+echo "=============================" | lolcat
 echo -e ""
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
