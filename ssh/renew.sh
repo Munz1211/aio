@@ -1,24 +1,14 @@
 #!/bin/bash
-
-#########################
-
-MYIP=$(curl -sS ipv4.icanhazip.com)
-
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-
+MYIP=$(wget -qO- icanhazip.com);
+echo "Checking VPS"
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
-echo
-read -p "Username : " User
+read -p "         Username       :  " User
 egrep "^$User" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
-read -p "Day Extend : " Days
+read -p "         Day Extend     :  " Days
 Today=`date +%s`
 Days_Detailed=$(( $Days * 86400 ))
 Expire_On=$(($Today + $Days_Detailed))
@@ -29,27 +19,26 @@ usermod -e  $Expiration $User
 egrep "^$User" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo -e ""
-echo -e " Username : $User"
-echo -e " Days Added : $Days Days"
-echo -e " Expires on :  $Expiration_Display"
+echo -e "========================================" | lolcat
 echo -e ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "    Username        :  $User" | lolcat
+echo -e "    Days Added      :  $Days Days" | lolcat
+echo -e "    Expires on      :  $Expiration_Display" | lolcat
+echo -e ""
+echo -e "========================================" | lolcat
+echo -e ""
+read -p "$( echo -e "Press [ Enter ] To Menu")"
+menu
 else
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo -e ""
-echo -e "   Username Doesnt Exist      "
+echo -e "======================================" | lolcat
 echo -e ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-fi
+echo -e "        Username Doesnt Exist        " | lolcat
 echo -e ""
+echo -e "======================================" | lolcat
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -p "$( echo -e "Press [ Enter ] To Menu")"
 menu
-
+fi
