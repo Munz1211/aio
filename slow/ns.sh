@@ -15,7 +15,7 @@ clear
 apt install jq curl -y
 
 DOMAIN=munsc.me
-domen=$( cat /root/domain)
+domen=$(cat /root/domain)
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 SUB_DOMAIN=${sub}.${DOMAIN}
 NS_DOMAIN=ns.${SUB_DOMAIN}
