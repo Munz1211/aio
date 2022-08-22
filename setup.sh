@@ -15,7 +15,7 @@ red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 #======================================
 
 #INTALL LOLCAT
-wget https://raw.githubusercontent.com/Munz1211/aio/main/file/lolcat.sh && chmod +x lolcat.sh && screen -S lolcat ./lolcat.sh
+wget https://raw.githubusercontent.com/Munz1211/aio/main/file/lolcat.sh && chmod +x lolcat.sh && screen -S lolcat ./lolcat.sh && rm /root/lolcat.sh
 
 cd /root
 
