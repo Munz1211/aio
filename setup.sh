@@ -32,14 +32,6 @@ clear
 
 mkdir -p /etc/xray
 
-echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
-sleep 1
-echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Checking headers"
-sleep 1
-
-
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
@@ -49,12 +41,6 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
-
-echo -e "[ ${green}INFO${NC} ] Preparing the install file"
-apt install git curl -y >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Check permission "
 
 sleep 3
 
