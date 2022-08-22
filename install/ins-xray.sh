@@ -508,7 +508,7 @@ wget -O /usr/local/sbin/addtr https://raw.githubusercontent.com/Munz1211/aio/mai
 wget -O /usr/local/sbin/addvless https://raw.githubusercontent.com/Munz1211/aio/main/xray/addvless.sh && chmod +x /usr/local/sbin/addvless && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addvless
 wget -O /usr/local/sbin/delws https://raw.githubusercontent.com/Munz1211/aio/main/xray/delws.sh && chmod +x /usr/local/sbin/delws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix delws
 wget -O /usr/local/sbin/crt https://raw.githubusercontent.com/Munz1211/aio/main/xray/crt.sh && chmod +x /usr/local/sbin/crt && cd /usr/local/sbin && apt install -y dos2unix && dos2unix crt
-wget -O /usr/local/sbin/addws https://${geovpn}/addws.sh && chmod +x /usr/local/sbin/addws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addws
+wget -O /usr/local/sbin/addws https://raw.githubusercontent.com/Munz1211/aio/main/xray/addws.sh && chmod +x /usr/local/sbin/addws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addws
 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
