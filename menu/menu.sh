@@ -82,7 +82,7 @@ echo -e "Sever Uptime        = $( uptime -p  | cut -d " " -f 2-10000 ) "
 echo -e "Current Time        = $( date -d "0 days" +"%d-%m-%Y | %X" )"
 echo -e "Operating System    = $( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )"
 echo -e "Total Amount RAM    = $tram MB"
-echo -e "Current Domain      = $( cat /root/domain )"
+echo -e "Current Domain      = $(cat /root/domain)"
 echo -e "Server IP           = ${IP}"
 
 echo -e ""
