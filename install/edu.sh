@@ -16,21 +16,21 @@ red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
 NC='\e[0m'
-curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/ascii-home | lolcat
+
 echo "SSH Websocket" | lolcat
 echo "Websocket TLS / Websocket None TLS" | lolcat
 echo "Progress..." | lolcat
 sleep 3
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-tls https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ws/ws-tls.py
+wget -q -O /usr/local/bin/ws-tls https://raw.githubusercontent.com/Munz1211/aio/main/py/ws-tls.py
 chmod +x /usr/local/bin/ws-tls
 
 # Installing Service
 cat > /etc/systemd/system/ws-tls.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
-Documentation=https://t.me/geovpn
+Description=Python Proxy Mod By munsc.me
+Documentation=https://munsc.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -51,14 +51,14 @@ systemctl enable ws-tls
 systemctl restart ws-tls
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ws/ws-nontls.py
+wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/Munz1211/aio/main/py/ws-nontls.py
 chmod +x /usr/local/bin/ws-nontls
 
 # Installing Service
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
-Documentation=https://t.me/geovpn
+Description=Python Proxy Mod By munsc.me
+Documentation=https://munsc.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -79,7 +79,7 @@ systemctl enable ws-nontls
 systemctl restart ws-nontls
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ws/ws-ovpn.py
+wget -q -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Munz1211/aio/main/py/ws-ovpn.py
 chmod +x /usr/local/bin/ws-ovpn
 
 # Installing Service
