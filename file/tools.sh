@@ -15,9 +15,6 @@ elif [[ -e /etc/centos-release ]]; then
 	OS=centos
 fi
 
-
-
-
 echo " Tools install...!" | lolcat
 echo " Progress..." | lolcat
 sleep 2
@@ -31,13 +28,13 @@ apt-get install python -y
 update-grub
 
 sudo apt install -y screen curl jq bzip2 gzip coreutils rsyslog iftop \
- htop zip unzip net-tools sed gnupg gnupg1 \
- bc sudo apt-transport-https build-essential dirmngr libxml-parser-perl neofetch screenfetch git lsof \
- openssl openvpn easy-rsa fail2ban tmux \
- stunnel4 vnstat squid3 \
- dropbear  libsqlite3-dev \
- socat cron bash-completion ntpdate xz-utils sudo apt-transport-https \
- gnupg2 dnsutils lsb-release chrony
+htop zip unzip net-tools sed gnupg gnupg1 \
+bc sudo apt-transport-https build-essential dirmngr libxml-parser-perl neofetch screenfetch git lsof \
+openssl openvpn easy-rsa fail2ban tmux \
+stunnel4 vnstat squid3 \
+dropbear  libsqlite3-dev \
+socat cron bash-completion ntpdate xz-utils sudo apt-transport-https \
+gnupg2 dnsutils lsb-release chrony
 
 curl -sSL https://deb.nodesource.com/setup_16.x | bash - 
 sudo apt-get install nodejs -y
@@ -63,6 +60,5 @@ sudo apt install -y libnss3-dev libnspr4-dev pkg-config libpam0g-dev libcap-ng-d
 
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "Dependencies successfully installed..."
-sleep 3
+sleep 5
 clear
-
