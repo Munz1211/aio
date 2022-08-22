@@ -59,9 +59,13 @@ clear
 fi
 fi
 
-echo ""
-wget -q https://raw.githubusercontent.com/Munz1211/aio/main/file/tools.sh ; chmod +x tools.sh ; ./tools.sh
-rm tools.sh
+clear
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install Tools SC   $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 5
+wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/file/tools.sh" ; chmod +x tools.sh ; ./tools.sh
+
 
 clear
 #install Cloudflare
@@ -69,40 +73,38 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green      Install Cloudflare   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-
-clear
 wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/cf.sh" && chmod +x cf.sh && ./cf.sh
+
 clear
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / VPN               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
+wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/ssh-vpn.sh" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 
 clear
-wget https://raw.githubusercontent.com/Munz1211/aio/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install XRAY              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
+wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/ins-xray.sh" && chmod +x ins-xray.sh && ./ins-xray.sh && rm -f ins-xray.sh  
 
 clear
-wget https://raw.githubusercontent.com/Munz1211/aio/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh && rm -f ins-xray.sh  
 #install ssh ws
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
+wget https://raw.githubusercontent.com/Munz1211/aio/main/install/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 
 clear
-wget https://raw.githubusercontent.com/Munz1211/aio/main/install/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS EDU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/edu.sh && chmod +x edu.sh && ./edu.sh
 
 clear
@@ -111,9 +113,21 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green      Install SSH / SLOWDNS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/slowdns.sh && chmod +x slowdns.sh && ./slowdns.sh
+clear
 
+cat> /root/.profile << END
+
+clear
+sleep 1
+clear
+neofetch --ascii_distro kali
+echo -e \" - Script Mod By Munz Core\" | lolcat
+echo -e \"\x1b[96m - Silahkan Ketik\x1b[m \x1b[92mMENU\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"
+
+END
+
+clear
 if [ -f "/root/log-install.txt" ]; then
 rm /root/log-install.txt > /dev/null 2>&1
 fi
@@ -185,13 +199,21 @@ echo "===============-[ Script Recode By munzvpn ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm /root/cf.sh >/dev/null 2>&1
-rm /root/setup.sh >/dev/null 2>&1
-rm /root/insshws.sh
-rm /root/edu.sh
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
-echo -e "
-"
+echo -e ""
+
+# Delete Data SC
+rm /root/tools.sh >/dev/null 2>&1
+rm /root/cf.sh >/dev/null 2>&1
+rm /root/ssh-vpn.sh >/dev/null 2>&1
+rm /root/ins-xray.sh >/dev/null 2>&1
+rm /root/insshws.sh >/dev/null 2>&1
+rm /root/edu.sh >/dev/null 2>&1
+rm /root/slowdns.sh >/dev/null 2>&1
+rm /root/setup.sh >/dev/null 2>&1
+#========================
+
+echo -e ""
 echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
@@ -199,4 +221,3 @@ exit 0
 else
 reboot
 fi
-
