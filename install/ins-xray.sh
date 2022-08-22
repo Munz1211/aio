@@ -515,9 +515,5 @@ yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
 yellow "xray/Vless"
 
-mv /root/domain /etc/xray/ 
-if [ -f /root/scdomain ];then
-rm /root/scdomain > /dev/null 2>&1
-fi
 clear
 rm -f ins-xray.sh  
