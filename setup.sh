@@ -31,12 +31,6 @@ sudo hostnamectl set-hostname Munz-Project
 clear
 
 mkdir -p /etc/xray
-mkdir -p /etc/v2ray
-touch /etc/xray/domain
-touch /etc/v2ray/domain
-touch /etc/xray/scdomain
-touch /etc/v2ray/scdomain
-
 
 echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
 sleep 1
