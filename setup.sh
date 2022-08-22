@@ -103,7 +103,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-wget https://raw.githubusercontent.com/Munz1211/aio/main/install/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/insshws.sh" && chmod +x insshws.sh && ./insshws.sh
 
 clear
 #install ssh ovpn
@@ -111,7 +111,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green      Install SSH / WS EDU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-wget https://raw.githubusercontent.com/Munz1211/aio/main/install/edu.sh && chmod +x edu.sh && ./edu.sh
+wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/edu.sh" && chmod +x edu.sh && ./edu.sh
 
 clear
 #install
@@ -119,7 +119,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green      Install SSH / SLOWDNS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-wget https://raw.githubusercontent.com/Munz1211/aio/main/install/slowdns.sh && chmod +x slowdns.sh && ./slowdns.sh
+wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/slowdns.sh" && chmod +x slowdns.sh && ./slowdns.sh
 clear
 
 cat> /root/.profile << END
