@@ -1,8 +1,6 @@
 #!/bin/bash
 # Menu For Script
 # Edition : Stable Edition V1.0
-# Auther  : AWALUDIN FERIYANTO
-# (C) Copyright 2021-2022 By FSIDVPN
 # =========================================
 
 # // Exporting Language to UTF-8
@@ -57,30 +55,6 @@ freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 # // Exporting RED BG
 export RED_BG='\e[44m'
 # ==========================================
-MYIP=$(curl -sS ipv4.icanhazip.com)
-#########################
-IZIN=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | awk '{print $4}' | grep $MYIP)
-if [ $MYIP = $IZIN ]; then
-echo -e "\e[32mPermission Accepted...\e[0m"
-else
-echo -e "\e[31mPermission Denied!\e[0m";
-exit 0
-fi
-#EXPIRED
-expired=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $3}')
-echo $expired > /root/expired.txt
-today=$(date -d +1day +%Y-%m-%d)
-while read expired
-do
-	exp=$(echo $expired | curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $3}')
-	if [[ $exp < $today ]]; then
-		geo="\033[1;31mExpired\033[0m"
-        else
-        geo=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $3}')
-	fi
-done < /root/expired.txt
-rm /root/expired.txt
-Name=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $2}')
 clear
 # // SSH Websocket Proxy
 ssh_ws=$( systemctl status ws-stunnel | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
@@ -115,7 +89,7 @@ echo -e "Sever Uptime        = $( uptime -p  | cut -d " " -f 2-10000 ) "
 echo -e "Current Time        = $( date -d "0 days" +"%d-%m-%Y | %X" )"
 echo -e "Operating System    = $( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )"
 echo -e "Total Amount RAM    = $tram MB"
-echo -e "Current Domain      = $( cat /etc/xray/domain )"
+echo -e "Current Domain      = $( cat /root/domain )"
 echo -e "Server IP           = ${IP}"
 
 echo -e ""
@@ -134,12 +108,8 @@ echo -e "[${GREEN}08${NC}]${RED} •${NC} Add Vless Account$NC    [${GREEN}17${N
 echo -e "[${GREEN}09${NC}]${RED} •${NC} Addd Trojan Account$NC  [${GREEN}18${NC}]${RED} • ${NC}Running $NC"
 echo -e " ${RED}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${RED_BG}                      GEO PROJECT                         ${NC}"
+echo -e "${RED_BG}                     MUNZ CORE                         ${NC}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}CLIENT NAME${NC}    ${RED}•$NC $Name"
-echo -e "${GREEN}SCRIPT EXPIRED${NC} ${RED}•$NC $exp"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-#echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e ""
 
 read -p "Input Your Choose ( 1-18 ) : " choosemu
@@ -152,8 +122,6 @@ case $choosemu in
     2) # >> ON OFF SSH WS
         sshws
     ;;
-
-    # R
     3) # >> CEK SSH
         cek
     ;;
@@ -200,7 +168,7 @@ case $choosemu in
     17) # // OpenVPN
         restore
     ;;
-    18) # // OpenVPN
+    18) # // STATUS RUNNING
         running
     ;;
     *) # >> Wrong Select
