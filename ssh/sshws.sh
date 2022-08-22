@@ -27,7 +27,7 @@ if [ -f "/etc/systemd/system/sshws.service" ]; then
 clear
 else
 wget -q -O /usr/bin/proxy3.js "https://raw.githubusercontent.com/Munz1211/aio/main/tambahan/proxy3.js"
-cat <<EOF> /etc/systemd/system/sshws.service
+cat > /etc/systemd/system/sshws.service <<-END
 [Unit]
 Description=WSenabler
 Documentation=munz
@@ -41,7 +41,8 @@ RestartSec=1s
 
 [Install]
 WantedBy=multi-user.target
-EOF
+END
+
 fi
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
