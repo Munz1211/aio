@@ -15,9 +15,6 @@ MYIP=$(curl -sS ipinfo.io/ip)
 
 clear
 
-# Link Hosting Kalian
-geovpn="autosscript.site/ambe/ssh"
-
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
@@ -30,7 +27,7 @@ apt install openvpn easy-rsa unzip -y
 apt install openssl iptables iptables-persistent -y
 mkdir -p /etc/openvpn/server/easy-rsa/
 cd /etc/openvpn/
-wget https://${geovpn}/vpn.zip
+wget https://raw.githubusercontent.com/Munz1211/aio/main/ssh/vpn.zip
 unzip vpn.zip
 rm -f vpn.zip
 chown -R root:root /etc/openvpn/server/easy-rsa/
@@ -158,71 +155,67 @@ cd
 cat <<'mySiteOvpn' > /home/vps/public_html/index.html
 <!DOCTYPE html>
 <html lang="en">
-<!-- Simple OVPN Download site by Geo Project -->
-  <head><center><center>
-  <meta charset="utf-8" />
-  <title>GEO PROJECT CONFIG</title>
-<meta name="viewport" content="width=device-width" />
-<div class="container padded" id="dl-clients">
-<body>
-<h2 class="h1"><i class="fa fa-desktop"><span style="color:yellow">Auto Script</i></h2>
-<h2 class="h1"><i class="fa fa-desktop"><span style="color:yellow">Premium</i></h2>
-<h2 class="h1"><i class="fa fa-desktop"><span style="color:yellow">Geo Project</i></h2>
-<meta name="description" content="MyScriptName Server" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<meta name="theme-color" content="#000000" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
-<div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;">
-<div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"></img><div class="mask rgba-white-slight"></div></div>
-<div class="card"><div class="card-body"><h5 class="card-title"><span class="badge light-blue darken-4">CONFIG OVPN LIST</span></h5><br /><ul class="list-group"><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> Config OVPN Protocol TCP-1194</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/tcp.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br/><small> Config OVPN Protocol UDP-2200</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/udp.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> Config OVPN Protocol Ssl-442</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/ssl.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> ALL.zip</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/cfg.zip" style="float:center;"><i class="fa fa-download"></i> Download</a></li></ul>
-</div></div></div></div>
-</body>
-<style type="text/css">
-body {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    color: black;
-    background-color: black;
-}
-h1 {
-    color: green;
-    font-size: 24px;
-    text-align: center;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-p.info {
-    text-align: center;
-    font-size: 12px;
-}
-.status0 {
-    background: #ebb;
-}
-.status1 {
-    background: lime;
-}
-table {
-    #border: medium solid black;
-    margin: 0 auto;
-    border-collapse: collapse;
-}
-th {
-    background: black;
-    color: white;
-}
-tr {
-    border-bottom: 1px solid #212223;
-}
-td {
-    padding: 0px 10px 0px 10px;
-}
-</style>
-<div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;">
-<th><br><div class="card"><div class="card-body"><h5 class="card-title"><span class="badge light-blue darken-4">OpenVPN Config Download</span><p class='info'>🔰 COPYRIGHT © 2022 by Geo Project 🔰<br/>🔰Website Powered By Geo Project 🔰<br /></h5></br></p></div></div></th>
+   <!-- Simple OVPN Download site by Munz-Core -->
+   <head>
+      <center>
+      <center>
+      <meta charset="utf-8" />
+      <title>GEO PROJECT CONFIG</title>
+      <meta name="viewport" content="width=device-width" />
+      <div class="container padded" id="dl-clients">
+   <body>
+   <meta name="description" content="MyScriptName Server" />
+   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+   <meta name="theme-color" content="#000000" />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+   <div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;">
+   <div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"></img><div class="mask rgba-white-slight"></div></div>
+   <div class="card"><div class="card-body"><h5 class="card-title"><span class="badge light-blue darken-4">CONFIG OVPN LIST</span></h5><br /><ul class="list-group"><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> Config OVPN Protocol TCP-1194</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/tcp.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br/><small> Config OVPN Protocol UDP-2200</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/udp.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> Config OVPN Protocol Ssl-442</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/ssl.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> ALL.zip</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/cfg.zip" style="float:center;"><i class="fa fa-download"></i> Download</a></li></ul>
+   </div></div></div></div>
+   </body>
+   <style type="text/css">
+   body {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   color: black;
+   background-color: black;
+   }
+   h1 {
+   color: green;
+   font-size: 24px;
+   text-align: center;
+   padding-bottom: 0;
+   margin-bottom: 0;
+   }
+   p.info {
+   text-align: center;
+   font-size: 12px;
+   }
+   .status0 {
+   background: #ebb;
+   }
+   .status1 {
+   background: lime;
+   }
+   table {
+   #border: medium solid black;
+   margin: 0 auto;
+   border-collapse: collapse;
+   }
+   th {
+   background: black;
+   color: white;
+   }
+   tr {
+   border-bottom: 1px solid #212223;
+   }
+   td {
+   padding: 0px 10px 0px 10px;
+   }
+   </style>
 </html>
-
 </ul></div></div></div></div></body></html>
 mySiteOvpn
 
