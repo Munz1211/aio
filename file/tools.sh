@@ -15,6 +15,9 @@ elif [[ -e /etc/centos-release ]]; then
 	OS=centos
 fi
 
+#INTALL LOLCAT
+wget https://raw.githubusercontent.com/Munz1211/aio/main/file/lolcat.sh && chmod +x lolcat.sh && screen -S lolcat ./lolcat.sh && rm /root/lolcat.sh
+
 echo " Tools install...!" | lolcat
 echo " Progress..." | lolcat
 sleep 2
@@ -52,9 +55,6 @@ systemctl enable vnstat
 /etc/init.d/vnstat restart
 rm -f /root/vnstat-2.6.tar.gz >/dev/null 2>&1
 rm -rf /root/vnstat-2.6 >/dev/null 2>&1
-
-#INTALL LOLCAT
-wget https://raw.githubusercontent.com/Munz1211/aio/main/file/lolcat.sh && chmod +x lolcat.sh && screen -S lolcat ./lolcat.sh && rm /root/lolcat.sh
 
 fi
 
