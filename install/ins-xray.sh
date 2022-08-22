@@ -515,5 +515,6 @@ yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
 yellow "xray/Vless"
 
+echo -e "Installed Xray Clear" | lolcat
+sleep 5
 clear
-rm -f ins-xray.sh  
