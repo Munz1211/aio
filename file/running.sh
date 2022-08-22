@@ -3,50 +3,17 @@
 # Edition : Stable Edition V1.0
 # =========================================
 
-# // Exporting Language to UTF-8
-export LC_ALL='en_US.UTF-8'
-export LANG='en_US.UTF-8'
-export LANGUAGE='en_US.UTF-8'
-export LC_CTYPE='en_US.utf8'
-
-# // Export Color & Information
-export RED='\033[0;31m'
-export GREEN='\033[0;32m'
-export YELLOW='\033[0;33m'
-export BLUE='\033[0;34m'
-export PURPLE='\033[0;35m'
-export CYAN='\033[0;36m'
-export LIGHT='\033[0;37m'
-export NC='\033[0m'
-
-# // Export Banner Status Information
-export EROR="[${RED} EROR ${NC}]"
-export INFO="[${YELLOW} INFO ${NC}]"
-export OKEY="[${GREEN} OKEY ${NC}]"
-export PENDING="[${YELLOW} PENDING ${NC}]"
-export SEND="[${YELLOW} SEND ${NC}]"
-export RECEIVE="[${YELLOW} RECEIVE ${NC}]"
-
-# // Export Align
-export BOLD="\e[1m"
-export WARNING="${RED}\e[5m"
-export UNDERLINE="\e[4m"
-
-# // Exporting IP Address
-export IP=$( curl -s https://ipinfo.io/ip/ )
-
 freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
-	tram=$( free -m | awk 'NR==2 {print $2}' )
-	swap=$( free -m | awk 'NR==4 {print $2}' )
+tram=$( free -m | awk 'NR==2 {print $2}' )
+swap=$( free -m | awk 'NR==4 {print $2}' )
 
-function os_detail () {
-    OS_Name="$( cat /etc/os-release | grep -w ID | head -n1 | sed 's/ID//g' | sed 's/=//g' )"
-    OS_FName="$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' | sed 's/,//g'  )"
-    OS_Version="$( cat /etc/os-release | grep -w VERSION | head -n1 | sed 's/VERSION//g' | sed 's/=//g' | sed 's/"//g' )"
-    OS_Version_ID="$( cat /etc/os-release | grep -w VERSION_ID | head -n1 | sed 's/VERSION_ID//g' | sed 's/=//g' | sed 's/"//g' )"
-    OS_Arch="$( uname -m )"
-    OS_Kernel="$( uname -r )"
-}
+OS_Name="$( cat /etc/os-release | grep -w ID | head -n1 | sed 's/ID//g' | sed 's/=//g' )"
+OS_FName="$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' | sed 's/,//g'  )"
+OS_Version="$( cat /etc/os-release | grep -w VERSION | head -n1 | sed 's/VERSION//g' | sed 's/=//g' | sed 's/"//g' )"
+OS_Version_ID="$( cat /etc/os-release | grep -w VERSION_ID | head -n1 | sed 's/VERSION_ID//g' | sed 's/=//g' | sed 's/"//g' )"
+OS_Arch="$( uname -m )"
+OS_Kernel="$( uname -r )"
+
 ########################
 # GETTING INFORMATION
 # =========================================================================================================
@@ -109,9 +76,6 @@ fi
 # =========================================================================================================
 
 # // Running Function Requirement
-os_detail
-script_version
-license_check
 
 if [[ $Bot == "1" ]]; then
         bot='Allowed'
