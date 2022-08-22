@@ -13,6 +13,7 @@ red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 
 portdb=`cat ~/log-install.txt | grep -w "Dropbear" | cut -d: -f2|sed 's/ //g' | cut -f2 -d","`
 portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
+
 if [ -f "/etc/systemd/system/sshws.service" ]; then
 clear
 else
@@ -62,10 +63,19 @@ echo -e "${red}SSH Websocket Stopped${NC}"
 fi
 }
 
+status="$(systemctl show sshws.service --no-page)"                                      
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m            SSH WEBSOCKET            \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " ssh ws status : "RUNNING""  | lolcat
+else                                                                                    
+echo -e " ssh ws status : "NOT RUNNING" " | lolcat
+fi
 echo ""
 echo -e " 1. Enable SSH Websocket"
 echo -e " 2. Disable SSh Websocket"
@@ -83,4 +93,3 @@ menu
 fi
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
-
