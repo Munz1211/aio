@@ -1,5 +1,4 @@
 #!/bin/bash
-# My Telegram : https://t.me/sampiiiiu
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -18,74 +17,17 @@ green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 # ==========================================
 # initializing var
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#########################
-
-BURIQ () {
-    curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow > /root/tmp
-    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
-    for user in "${data[@]}"
-    do
-    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
-    d1=(`date -d "$exp" +%s`)
-    d2=(`date -d "$biji" +%s`)
-    exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
-    echo $user > /etc/.$user.ini
-    else
-    rm -f /etc/.$user.ini
-    fi
-    done
-    rm -f /root/tmp
-}
 
 MYIP=$(curl -sS ipinfo.io/ip)
-Name=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $2}')
-echo $Name > /usr/local/etc/.$Name.ini
-CekOne=$(cat /usr/local/etc/.$Name.ini)
 
-Bloman () {
-if [ -f "/etc/.$Name.ini" ]; then
-CekTwo=$(cat /etc/.$Name.ini)
-    if [ "$CekOne" = "$CekTwo" ]; then
-        res="Expired"
-    fi
-else
-res="Permission Accepted..."
-fi
-}
-
-PERMISSION () {
-    MYIP=$(curl -sS ipinfo.io/ip)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | awk '{print $4}' | grep $MYIP)
-    if [ "$MYIP" = "$IZIN" ]; then
-    Bloman
-    else
-    res="Permission Denied!"
-    fi
-    BURIQ
-}
 clear
-red='\e[1;31m'
-green='\e[0;32m'
-yell='\e[1;33m'
-NC='\e[0m'
-curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/ascii-home | lolcat
+
 echo "SSH & Ovpn" | lolcat
 echo "Progress..." | lolcat
 sleep 3
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-PERMISSION
-if [ "$res" = "Permission Accepted..." ]; then
-green "Permission Accepted.."
-else
-red "Permission Denied!"
-exit 0
-fi
+
 clear
-geovpn="autosscript.site/aio"
+
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
 MYIP=$(wget -qO- ipinfo.io/ip);
@@ -97,14 +39,14 @@ ver=$VERSION_ID
 #detail nama perusahaan
 country=ID
 state=Indonesia
-locality=none
-organization=geovpn
-organizationalunit=geovpn
-commonname=geovpn
-email=admin@geolstore.net
+locality=Indonesia
+organization=munsc
+organizationalunit=munsc
+commonname=munsc
+email=admin@munsc.me
 
 # simple password minimal
-curl -sS https://${geovpn}/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/Munz1211/aio/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -162,16 +104,43 @@ apt -y install shc
 apt -y install wget curl
 
 #figlet
-apt-get install figlet -y
-apt-get install ruby -y
-gem install lolcat
+apt install ruby -y
+apt install python -y
+apt install make -y
+apt install cmake -y
+apt install coreutils -y
+apt install rsyslog -y
+apt install net-tools -y
+apt install zip -y
+apt install unzip -y
+apt install nano -y
+apt install sed -y
+apt install gnupg -y
+apt install gnupg1 -y
+apt install bc -y
+apt install jq -y
+apt install apt-transport-https -y
+apt install build-essential -y
+apt install dirmngr -y
+apt install libxml-parser-perl -y
+apt install neofetch -y
+apt install git -y
+apt install lsof -y
+apt install libsqlite3-dev -y
+apt install libz-dev -y
+apt install gcc -y
+apt install g++ -y
+apt install libreadline-dev -y
+apt install zlib1g-dev -y
+apt install libssl-dev -y
+apt install libssl1.0-dev -y
+apt install dos2unix -y
 
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-
 
 install_ssl(){
     if [ -f "/usr/bin/apt-get" ];then
@@ -207,15 +176,7 @@ install_ssl(){
     fi
 }
 
-# install webserver
-#apt -y install nginx
-#cd
-#rm /etc/nginx/sites-enabled/default
-#rm /etc/nginx/sites-available/default
-#wget -O /etc/nginx/nginx.conf "https://${geovpn}/nginx.conf"
-#mkdir -p /home/vps/public_html
-#/etc/init.d/nginx restart
-#/etc/init.d/nginx status
+
 
 # install webserver
 echo -e "[ ${green}INFO${NC} ] install webserver"
@@ -226,18 +187,12 @@ curl https://${geovpn}/nginx.conf > /etc/nginx/nginx.conf
 curl https://${geovpn}/vps.conf > /etc/nginx/conf.d/vps.conf
 sed -i 's/listen = \/var\/run\/php-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/fpm/pool.d/www.conf
 useradd -m vps;
-mkdir -p /home/vps/public_html
-echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
-chown -R www-data:www-data /home/vps/public_html
-chmod -R g+rw /home/vps/public_html
-cd /home/vps/public_html
-wget -O /home/vps/public_html/index.html "https://${geovpn}/index.html1"
 /etc/init.d/nginx restart
 /etc/init.d/nginx status
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://${geovpn}/newudpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -245,16 +200,11 @@ sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-c
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 
 # setting port ssh
 cd
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g'
+
 # /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 500' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 40000' /etc/ssh/sshd_config
@@ -349,13 +299,13 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 #OpenVPN
 echo -e "[ ${green}INFO${NC} ] Install OpenVPN"
-wget https://${geovpn}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://raw.githubusercontent.com/Munz1211/aio/main/ssh/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 clear
 echo; echo 'Installing DOS-Deflate 0.6'; echo
 echo; echo -n 'Downloading source files...'
 apt install -y dnsutils tcpdump dsniff grepcidr
-wget -qO ddos.zip "https://${geovpn}/ddos-deflate.zip" > /dev/null 2>&1
+wget -qO ddos.zip "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/ddos-deflate.zip" > /dev/null 2>&1
 unzip ddos.zip
 cd ddos-deflate
 chmod +x install.sh
@@ -363,12 +313,12 @@ chmod +x install.sh
 
 # banner /etc/issue.net
 echo -e "[ ${green}INFO${NC} ] Install Banner"
-wget -O /etc/issue.net "https://${geovpn}/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/Munz1211/scmunz/main/ssh/banner.conf"
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 #install bbr dan optimasi kernel
-wget https://${geovpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://raw.githubusercontent.com/Munz1211/scmunz/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -389,29 +339,18 @@ netfilter-persistent reload
 
 # download script
 cd /usr/local/sbin
-wget -O addssh "https://${geovpn}/addssh.sh"
-wget -O hapus "https://${geovpn}/hapus.sh"
-wget -O member "https://${geovpn}/member.sh"
-wget -O renew "https://${geovpn}/renew.sh"
-wget -O cek "https://${geovpn}/cek.sh"
-wget -O addhost "https://${geovpn}/addhost.sh"
-wget -O speedtest "https://${geovpn}/speedtest_cli.py"
-wget -O xp "https://${geovpn}/xp.sh"
-wget -O asu "https://${geovpn}/asu.sh"
-wget -O menu "https://${geovpn}/menu.sh"
-wget -O sshws "https://${geovpn}/sshws.sh"
-wget -O running "https://${geovpn}/running.sh"
-wget -O renewws "https://${geovpn}/renewws.sh"
-wget -O /usr/local/sbin/cekws https://${geovpn}/cekws.sh && chmod +x /usr/local/sbin/cekws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekws
-wget -O /usr/local/sbin/cekusage https://${geovpn}/cekusage.sh && chmod +x /usr/local/sbin/cekusage && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekusage
-wget -O /usr/local/sbin/addtr https://${geovpn}/addtr.sh && chmod +x /usr/local/sbin/addtr && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addtr
-wget -O /usr/local/sbin/addvless https://${geovpn}/addvless.sh && chmod +x /usr/local/sbin/addvless && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addvless
-wget -O /usr/local/sbin/delws https://${geovpn}/delws.sh && chmod +x /usr/local/sbin/delws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix delws
-wget -O /usr/local/sbin/crt https://${geovpn}/crt.sh && chmod +x /usr/local/sbin/crt && cd /usr/local/sbin && apt install -y dos2unix && dos2unix crt
-wget -O /usr/local/sbin/addssws https://${geovpn}/addssws.sh && chmod +x /usr/local/sbin/addssws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addssws
-wget -O /usr/local/sbin/addws https://${geovpn}/addws.sh && chmod +x /usr/local/sbin/addws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addws
-wget -O /usr/local/sbin/backup https://${geovpn}/backup.sh && chmod +x /usr/local/sbin/backup && cd /usr/local/sbin && apt install -y dos2unix && dos2unix backup
-wget -O /usr/local/sbin/restore https://${geovpn}/restore.sh && chmod +x /usr/local/sbin/restore && cd /usr/local/sbin && apt install -y dos2unix && dos2unix restore
+wget -O addssh "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addssh.sh"
+wget -O hapus "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/member.sh"
+wget -O renew "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/renew.sh"
+wget -O cek "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/cek.sh"
+wget -O addhost "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addhost.sh"
+wget -O speedtest "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/speedtest_cli.py"
+wget -O xp "https://https://raw.githubusercontent.com/Munz1211/aio/main/ssh/xp.sh"
+wget -O asu "https://https://raw.githubusercontent.com/Munz1211/aio/main/ssh/asu.sh"
+wget -O menu "https://https://raw.githubusercontent.com/Munz1211/aio/main/menu/menu.sh"
+wget -O sshws "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/sshws.sh"
+wget -O running "https://raw.githubusercontent.com/Munz1211/aio/main/file/running.sh"
 chmod +x addssh
 chmod +x menu
 chmod +x hapus
@@ -424,8 +363,6 @@ chmod +x xp
 chmod +x asu
 chmod +x sshws
 chmod +x running
-#chmod +x cekws
-chmod +x renewws
 cd
 
 
@@ -462,6 +399,7 @@ fi
 # apt-get -y --purge remove bind9* >/dev/null 2>&1
 # apt-get -y remove sendmail* >/dev/null 2>&1
 # apt autoremove -y >/dev/null 2>&1
+
 # finishing
 sudo apt remove apache2 -y
 sudo apt purge apache2 -y
@@ -497,12 +435,7 @@ echo -e "[ ${green}ok${NC} ] Restarting vnstat "
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
+
 history -c
 echo "unset HISTFILE" >> /etc/profile
 
