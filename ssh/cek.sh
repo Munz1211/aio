@@ -1,15 +1,5 @@
 #!/bin/bash
 
-#########################
-
-MYIP=$(curl -sS ipv4.icanhazip.com)
-
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-
 clear
 echo " "
 echo " "
@@ -20,13 +10,11 @@ fi
 if [ -e "/var/log/secure" ]; then
         LOG="/var/log/secure";
 fi
-               
+                
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         Dropbear User Login       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "-----=[ Dropbear User Login ]=-----" | lolcat;
+echo "ID  |  Username  |  IP Address" | lolcat;
+echo "-------------------------------------" | lolcat;
 cat $LOG | grep -i dropbear | grep -i "Password auth succeeded" > /tmp/login-db.txt;
 for PID in "${data[@]}"
 do
@@ -35,17 +23,13 @@ do
         USER=`cat /tmp/login-db-pid.txt | awk '{print $10}'`;
         IP=`cat /tmp/login-db-pid.txt | awk '{print $12}'`;
         if [ $NUM -eq 1 ]; then
-                echo "$PID - $USER - $IP";
-        fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-
+                echo "$PID - $USER - $IP" | lolcat;
+                fi
 done
 echo " "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenSSH User Login       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "-----=[ OpenSSH User Login ]=-----" | lolcat;
+echo "ID  |  Username  |  IP Address" | lolcat;
+echo "-------------------------------------" | lolcat;
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 
@@ -56,40 +40,34 @@ do
         USER=`cat /tmp/login-db-pid.txt | awk '{print $9}'`;
         IP=`cat /tmp/login-db-pid.txt | awk '{print $11}'`;
         if [ $NUM -eq 1 ]; then
-                echo "$PID - $USER - $IP";
+                echo "$PID - $USER - $IP" | lolcat;
         fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-
 done
 if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m          OpenVPN TCP User Login         \E[0m"
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo "Username  |  IP Address  |  Connected Since";
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo "-----=[ OpenVPN TCP User Login ]=-----" | lolcat;
+        echo "Username  |  IP Address  |  Connected Since" | lolcat;
+        echo "-------------------------------------" | lolcat;
         cat /etc/openvpn/server/openvpn-tcp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-tcp.txt
         cat /tmp/vpn-login-tcp.txt
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "-------------------------------------" | lolcat
 
 if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         echo " "
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m          OpenVPN UDP User Login         \E[0m"
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo "Username  |  IP Address  |  Connected Since";
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo "-----=[ OpenVPN UDP User Login ]=-----" | lolcat;
+        echo "Username  |  IP Address  |  Connected Since" | lolcat;
+        echo "-------------------------------------" | lolcat;
         cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-udp.txt
         cat /tmp/vpn-login-udp.txt
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "-------------------------------------" | lolcat
 echo "";
 
 rm -f /tmp/login-db-pid.txt
 rm -f /tmp/login-db.txt
 rm -f /tmp/vpn-login-tcp.txt
 rm -f /tmp/vpn-login-udp.txt
-read -n 1 -s -r -p "Press any key to back on menu"
 
+read -p "$( echo -e "Press [ Enter ] To Menu")"
 menu
