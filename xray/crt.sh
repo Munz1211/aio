@@ -41,7 +41,4 @@ echo $domain > /root/domain
 systemctl restart $Cek
 systemctl restart nginx
 echo -e "[ ${green}INFO${NC} ] All finished... " 
-sleep 0.5
-echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
+sleep 5
