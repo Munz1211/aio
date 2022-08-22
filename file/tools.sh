@@ -20,7 +20,7 @@ echo " Progress..." | lolcat
 sleep 2
 
 sudo apt update -y
-sudo apt update -y
+sudo apt upgrade -y
 sudo apt dist-upgrade -y
 sudo apt-get remove --purge ufw firewalld -y 
 sudo apt-get remove --purge exim4 -y 
@@ -53,6 +53,8 @@ systemctl enable vnstat
 rm -f /root/vnstat-2.6.tar.gz >/dev/null 2>&1
 rm -rf /root/vnstat-2.6 >/dev/null 2>&1
 
+#INTALL LOLCAT
+wget https://raw.githubusercontent.com/Munz1211/aio/main/file/lolcat.sh && chmod +x lolcat.sh && screen -S lolcat ./lolcat.sh && rm /root/lolcat.sh
 
 fi
 
