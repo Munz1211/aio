@@ -68,7 +68,6 @@ clear
 echo -ne "[ ${yell}WARNING${NC} ] Do you want to install ? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
-rm setup.sh
 sleep 10
 exit 0
 else
