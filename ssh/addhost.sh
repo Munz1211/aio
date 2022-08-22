@@ -23,8 +23,13 @@ setting-menu
 else
 echo "$host" > /root/domain
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━\033[0m"
-echo "Dont forget to renew cert"
+echo "Wait For Renew Cert"
+sleep 5
+crt
+clear
+echo "Done Renew Cert"
 echo ""
+sleep 3
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 fi
