@@ -181,7 +181,7 @@ echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo ""
-echo "===============-[ Script Created By munzvpn ]-==============="
+echo "===============-[ Script Recode By munzvpn ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
