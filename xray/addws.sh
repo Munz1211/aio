@@ -3,13 +3,13 @@ clear
 
 domain=$(cat /root/domain)
 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━\033[0m"
-echo -e "\\E[0;41;36m Add Xray/Vmess Account      \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━\033[0m"
+echo -e " ━━━━━━━━━━━━━━━ " | lolcat
+echo -e " Add Vmess Account " | lolcat
+echo -e " ━━━━━━━━━━━━━━━ " | lolcat
 read -rp "User: " -e user
 egrep -w "^### $user" /etc/xray/config.json >/dev/null
 if [ $? -eq 0 ]; then
-echo -e "Username Sudah Ada"
+echo -e "Username Sudah Ada" | lolcat
 exit 0
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -75,24 +75,24 @@ systemctl restart xray
 service cron restart
 clear
 echo -e ""
-echo -e "━━━-XRAY/VMESS-━━━"
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "port TLS       : 443"
-echo -e "port none TLS  : 80"
-echo -e "id             : ${uuid}"
-echo -e "alterId        : 0"
-echo -e "Security       : auto"
-echo -e "network        : ws"
-echo -e "path           : /vmess"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "link TLS       : ${vmesslink1}"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "link none TLS  : ${vmesslink2}"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "link  GRPC  : ${vmesslink3}"
-echo -e "━━━━━━━━━━━━━━━"
-echo -e "Expired On     : $exp"
+echo -e "━━━-XRAY/VMESS-━━━" | lolcat
+echo -e "Remarks        : ${user}" | lolcat
+echo -e "Domain         : ${domain}" | lolcat
+echo -e "port TLS       : 443" | lolcat
+echo -e "port none TLS  : 80" | lolcat
+echo -e "id             : ${uuid}" | lolcat
+echo -e "alterId        : 0" | lolcat
+echo -e "Security       : auto" | lolcat
+echo -e "network        : ws" | lolcat
+echo -e "path           : /vmess" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "link TLS       : ${vmesslink1}" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "link none TLS  : ${vmesslink2}" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "link  GRPC  : ${vmesslink3}" | lolcat
+echo -e "━━━━━━━━━━━━━━━" | lolcat
+echo -e "Expired On     : $exp" | lolcat
 echo -e ""
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
