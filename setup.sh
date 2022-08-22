@@ -138,7 +138,7 @@ fi
 
 curl -sS ifconfig.me > /etc/myipvps
 echo " "
-echo "=====================-[ geovpn Project ]-===================="
+echo "=====================-[ Munz Project ]-===================="
 echo ""
 echo "------------------------------------------------------------"
 echo ""
@@ -181,7 +181,7 @@ echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo ""
-echo "===============-[ Script Created By geovpn ]-==============="
+echo "===============-[ Script Created By munzvpn ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
