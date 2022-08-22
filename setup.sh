@@ -14,9 +14,6 @@ green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 #======================================
 
-#INTALL LOLCAT
-wget https://raw.githubusercontent.com/Munz1211/aio/main/file/lolcat.sh && chmod +x lolcat.sh && screen -S lolcat ./lolcat.sh && rm /root/lolcat.sh
-
 cd /root
 
 #System version number
@@ -148,12 +145,12 @@ wget -q https://raw.githubusercontent.com/Munz1211/aio/main/file/tools.sh ; chmo
 rm tools.sh
 
 clear
-
 #install Cloudflare
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install Cloudflare   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 5
+
 clear
 wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/cf.sh" && chmod +x cf.sh && ./cf.sh
 clear
@@ -161,52 +158,42 @@ clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / VPN               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 5
+
 clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install XRAY              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 5
+
 clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh && rm -f ins-xray.sh  
 #install ssh ws
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 5
+
 clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS EDU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 5
 clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/edu.sh && chmod +x edu.sh && ./edu.sh
+
 clear
 #install
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / SLOWDNS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 5
 clear
 wget https://raw.githubusercontent.com/Munz1211/aio/main/install/slowdns.sh && chmod +x slowdns.sh && ./slowdns.sh
-cat> /root/.profile << END
-# ~/.profile: executed by Bourne-compatible login shells.
-
-if [ "$BASH" ]; then
-  if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-  fi
-fi
-
-mesg n || true
-clear
-running
-END
-chmod 644 /root/.profile
 
 if [ -f "/root/log-install.txt" ]; then
 rm /root/log-install.txt > /dev/null 2>&1
@@ -217,6 +204,7 @@ fi
 if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
+
 history -c
 serverV=$( curl -sS https://raw.githubusercontent.com/Munz1211/aio/main/versi )
 echo $serverV > /opt/.ver
@@ -228,6 +216,7 @@ gg="PM"
 else
 gg="AM"
 fi
+
 curl -sS ifconfig.me > /etc/myipvps
 echo " "
 echo "=====================-[ geovpn Project ]-===================="
