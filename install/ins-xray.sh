@@ -346,8 +346,10 @@ cat > /etc/xray/config.json << END
   }
 }
 END
+
 rm -rf /etc/systemd/system/xray.service.d
-cat <<EOF> /etc/systemd/system/xray.service
+
+cat > /etc/systemd/system/xray.service <<END
 Description=Xray Service
 Documentation=https://github.com/xtls
 After=network.target nss-lookup.target
@@ -365,8 +367,9 @@ LimitNOFILE=1000000
 [Install]
 WantedBy=multi-user.target
 
-EOF
-cat > /etc/systemd/system/runn.service <<EOF
+END
+
+cat > /etc/systemd/system/runn.service <<END
 [Unit]
 Description=Mantap-Sayang
 After=network.target
@@ -379,10 +382,10 @@ Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
-EOF
+END
 
 #nginx config
-cat >/etc/nginx/conf.d/xray.conf <<EOF
+cat > /etc/nginx/conf.d/xray.conf <<END
     server {
              listen 80;
              listen [::]:80;
@@ -395,7 +398,8 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
              ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
              root /home/vps/public_html;
         }
-EOF
+END
+
 sed -i '$ ilocation = /vless' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
