@@ -3,51 +3,10 @@
 # Edition : Stable Edition V1.0
 # =========================================
 
-# // Exporting Language to UTF-8
-export LC_ALL='en_US.UTF-8'
-export LANG='en_US.UTF-8'
-export LANGUAGE='en_US.UTF-8'
-export LC_CTYPE='en_US.utf8'
-
-# // Export Color & Information
-export RED='\033[0;31m'
-export GREEN='\033[0;32m'
-export YELLOW='\033[0;33m'
-export BLUE='\033[0;34m'
-export PURPLE='\033[0;35m'
-export CYAN='\033[0;36m'
-export LIGHT='\033[0;37m'
-export NC='\033[0m'
-
-# // Export Banner Status Information
-export EROR="[${RED} EROR ${NC}]"
-export INFO="[${YELLOW} INFO ${NC}]"
-export OKEY="[${GREEN} OKEY ${NC}]"
-export PENDING="[${YELLOW} PENDING ${NC}]"
-export SEND="[${YELLOW} SEND ${NC}]"
-export RECEIVE="[${YELLOW} RECEIVE ${NC}]"
-
-# // Export Align
-export BOLD="\e[1m"
-export WARNING="${RED}\e[5m"
-export UNDERLINE="\e[4m"
-
-# // Root Checking
-if [ "${EUID}" -ne 0 ]; then
-		echo -e "${EROR} Please Run This Script As Root User !"
-		exit 1
-fi
-
-# // Exporting IP Address
-export IP=$( curl -s https://ipinfo.io/ip/ )
-
 freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 	tram=$( free -m | awk 'NR==2 {print $2}' )
 	swap=$( free -m | awk 'NR==4 {print $2}' )
 
-# // Exporting RED BG
-export RED_BG='\e[44m'
-# ==========================================
 clear
 # // SSH Websocket Proxy
 ssh_ws=$( systemctl status ws-stunnel | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
@@ -84,7 +43,6 @@ echo -e "Operating System    = $( cat /etc/os-release | grep -w PRETTY_NAME | se
 echo -e "Total Amount RAM    = $tram MB"
 echo -e "Current Domain      = $(cat /root/domain)"
 echo -e "Server IP           = ${IP}"
-
 echo -e ""
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e " [ SSH WebSocket${NC} : ${status_ws} ]   [ XRAY${NC} : ${status_xray} ]   [ NGINX${NC} : ${status_nginx} ]"
@@ -95,11 +53,11 @@ echo -e "[${GREEN}02${NC}]${RED} •${NC} SSH WS Enable$NC        [${GREEN}11${N
 echo -e "[${GREEN}03${NC}]${RED} •${NC} Cek User SSH$NC         [${GREEN}12${NC}]${RED} • ${NC}Del User Xray $NC"
 echo -e "[${GREEN}04${NC}]${RED} •${NC} Del User SSH$NC         [${GREEN}13${NC}]${RED} • ${NC}Renew User Xray $NC"
 echo -e "[${GREEN}05${NC}]${RED} •${NC} Renew SSH $NC           [${GREEN}14${NC}]${RED} • ${NC}Add-host $NC"
-echo -e "[${GREEN}06${NC}]${RED} •${NC} Member SSH $NC          [${GREEN}15${NC}]${RED} • ${NC}Cert V2ray $NC"
-echo -e "[${GREEN}07${NC}]${RED} •${NC} Add Vmess Account $NC   [${GREEN}16${NC}]${RED} • ${NC}Backup $NC"
-echo -e "[${GREEN}08${NC}]${RED} •${NC} Add Vless Account$NC    [${GREEN}17${NC}]${RED} • ${NC}Restore $NC"
-echo -e "[${GREEN}09${NC}]${RED} •${NC} Addd Trojan Account$NC  [${GREEN}18${NC}]${RED} • ${NC}Running $NC"
-echo -e " ${RED}"
+echo -e "[${GREEN}06${NC}]${RED} •${NC} Member SSH $NC          [${GREEN}15${NC}]${RED} • ${NC}Running $NC"
+echo -e "[${GREEN}07${NC}]${RED} •${NC} Add Vmess Account $NC"
+echo -e "[${GREEN}08${NC}]${RED} •${NC} Add Vless Account $NC"
+echo -e "[${GREEN}09${NC}]${RED} •${NC} Addd Trojan Account$NC"
+echo -e "${RED}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${RED_BG}                     MUNZ CORE                         ${NC}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -152,16 +110,7 @@ case $choosemu in
     14) # // Backup
         addhost
     ;;
-    15) # // Restore
-        crt
-    ;;
-    16) # // Create SSL For Stunnel
-        backup
-    ;;
-    17) # // OpenVPN
-        restore
-    ;;
-    18) # // STATUS RUNNING
+    15) # // STATUS RUNNING
         running
     ;;
     *) # >> Wrong Select
