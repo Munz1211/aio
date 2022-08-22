@@ -1,8 +1,6 @@
 #!/bin/bash
 # Menu Setup
 # Edition : Stable Edition V1.0
-# Auther  : Adit Ardiansyah 
-# (C) Copyright 2021 By Geo Project
 # =========================================
 
 # // Exporting Language to UTF-8
@@ -36,7 +34,7 @@ export UNDERLINE="\e[4m"
 clear
 # ===============================================
 cd
-wget -q -O /root/ns.sh "https://autosscript.site/slow/ns.sh" ; chmod +x ns.sh ; ./ns.sh
+wget -q -O /root/ns.sh "https://raw.githubusercontent.com/Munz1211/aio/main/slow/ns.sh" ; chmod +x ns.sh ; ./ns.sh
 echo -e "${OKEY} Processing For( ${GREEN}{ Installing }${NC} )"
 nameserver=$(cat /etc/xray/ns.txt)
 echo -e "${WARNING} Update( ${GREEN}${ Dependencies }${NC} )"
@@ -63,7 +61,7 @@ echo -e "${OKEY} Starting( ${GREEN} Istall slowdns ${NC} )"
 #// port
 cd
 mkdir -m 777 /etc/slowdns
-wget -q -O /root/plugin.zip "https://autosscript.site/slow/plugin.zip"
+wget -q -O /root/plugin.zip "https://raw.githubusercontent.com/Munz1211/aio/main/slow/plugin.zip"
 unzip plugin.zip
 rm -r -f plugin.zip
 cd dnstt-plugin
@@ -83,11 +81,8 @@ chmod +x /etc/slowdns/server
 chmod +x /etc/slowdns/client
 cd
 rm -r -f /root/dnstt-plugin
-#wget -q -O /usr/local/sbin/addssh "https://autosscript.site/mantap/slow/addssh.sh"
-#chmod +x /usr/local/sbin/addssh
-#wget -q -O /usr/local/sbin/trialssh "https://fsidvpn.live/trialssh.sh"
 chmod +x /usr/local/sbin/trialssh
-wget -q -O /etc/ssh/sshd_config "https://autosscript.site/slow/sshd"
+wget -q -O /etc/ssh/sshd_config "https://raw.githubusercontent.com/Munz1211/aio/main/slow/sshd"
 chmod +x /etc/ssh/sshd_config
 
 #install client.service
@@ -126,6 +121,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 END
 cd
+
 # nano /etc/rc.local
 cat > /etc/rc.local <<-END
 #!/bin/sh -e
