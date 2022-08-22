@@ -502,16 +502,13 @@ systemctl restart nginx
 systemctl enable runn
 systemctl restart runn
 
-wget -O /usr/local/sbin/cekws https://${geovpn}/cekws.sh && chmod +x /usr/local/sbin/cekws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekws
-wget -O /usr/local/sbin/cekusage https://${geovpn}/cekusage.sh && chmod +x /usr/local/sbin/cekusage && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekusage
-wget -O /usr/local/sbin/addtr https://${geovpn}/addtr.sh && chmod +x /usr/local/sbin/addtr && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addtr
-wget -O /usr/local/sbin/addvless https://${geovpn}/addvless.sh && chmod +x /usr/local/sbin/addvless && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addvless
-wget -O /usr/local/sbin/delws https://${geovpn}/delws.sh && chmod +x /usr/local/sbin/delws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix delws
-wget -O /usr/local/sbin/crt https://${geovpn}/crt.sh && chmod +x /usr/local/sbin/crt && cd /usr/local/sbin && apt install -y dos2unix && dos2unix crt
-wget -O /usr/local/sbin/addssws https://${geovpn}/addssws.sh && chmod +x /usr/local/sbin/addssws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addssws
+wget -O /usr/local/sbin/cekws https://raw.githubusercontent.com/Munz1211/aio/main/xray/cekws.sh && chmod +x /usr/local/sbin/cekws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekws
+wget -O /usr/local/sbin/cekusage https://raw.githubusercontent.com/Munz1211/aio/main/xray/cekusage.sh && chmod +x /usr/local/sbin/cekusage && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekusage
+wget -O /usr/local/sbin/addtr https://raw.githubusercontent.com/Munz1211/aio/main/xray/addtr.sh && chmod +x /usr/local/sbin/addtr && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addtr
+wget -O /usr/local/sbin/addvless https://raw.githubusercontent.com/Munz1211/aio/main/xray/addvless.sh && chmod +x /usr/local/sbin/addvless && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addvless
+wget -O /usr/local/sbin/delws https://raw.githubusercontent.com/Munz1211/aio/main/xray/delws.sh && chmod +x /usr/local/sbin/delws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix delws
+wget -O /usr/local/sbin/crt https://raw.githubusercontent.com/Munz1211/aio/main/xray/crt.sh && chmod +x /usr/local/sbin/crt && cd /usr/local/sbin && apt install -y dos2unix && dos2unix crt
 wget -O /usr/local/sbin/addws https://${geovpn}/addws.sh && chmod +x /usr/local/sbin/addws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix addws
-wget -O /usr/local/sbin/backup https://${geovpn}/backup.sh && chmod +x /usr/local/sbin/backup && cd /usr/local/sbin && apt install -y dos2unix && dos2unix backup
-wget -O /usr/local/sbin/restore https://${geovpn}/restore.sh && chmod +x /usr/local/sbin/restore && cd /usr/local/sbin && apt install -y dos2unix && dos2unix restore
 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
