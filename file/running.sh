@@ -109,6 +109,7 @@ echo -e "                ( STATUS SERVICE INFORMATION )            " | lolcat
 echo -e "----------------------------------------------------------" | lolcat
 echo ""
 echo -e "                     Sytem Information                    " | lolcat
+echo -e ""
 echo -e "Sever Uptime        = $( uptime -p  | cut -d " " -f 2-10000 ) " | lolcat
 echo -e "Current Time        = $( date -d "0 days" +"%d-%m-%Y | %X" )" | lolcat
 echo -e "Script Version      = 3.1" | lolcat
