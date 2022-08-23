@@ -5,6 +5,7 @@
 
 # // Export Color & Information
 NC='\033[0m'
+IP=$( curl -s https://ipinfo.io/ip/ )
 
 freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
