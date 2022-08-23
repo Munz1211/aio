@@ -15,8 +15,6 @@ clear
 apt install jq curl -y
 
 DOMAIN=munsc.me
-
-domen=$(cat /root/domain)
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
 SUB_DOMAIN=${sub}.${DOMAIN}
@@ -43,14 +41,14 @@ if [[ "${#RECORD}" -le 10 ]]; then
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${domen}'","ttl":120,"proxied":false}' | jq -r .result.id)
+     --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${DOMAIN}'","ttl":120,"proxied":false}' | jq -r .result.id)
 fi
 
 RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${domen}'","ttl":120,"proxied":false}')
+     --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${DOMAIN}'","ttl":120,"proxied":false}')
 
 echo "Host : $NS_DOMAIN"
 echo $NS_DOMAIN > /etc/xray/ns.txt
