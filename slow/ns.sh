@@ -17,8 +17,7 @@ apt install jq curl -y
 DOMAIN=munsc.me
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_DOMAIN=${sub}.${DOMAIN}
-NS_DOMAIN=ns.${SUB_DOMAIN}
+NS_DOMAIN=ns.${sub}.munsc.me
 CF_ID=mbahkoclok22@gmail.com
 CF_KEY=bacbaf2dd9f9808ce5b1fcf562d137175e7d2
 
