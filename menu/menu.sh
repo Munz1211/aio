@@ -9,6 +9,7 @@ CITY=$(curl -s ipinfo.io/city )
 IPVPS=$(curl -s ipinfo.io/ip )
 WKT=$(curl -s ipinfo.io/timezone )
 DOMAIN=$(cat /root/domain )
+VER=$(cat /opt/.ver )
 
 echo -e "   -------------------------SPEK-VPS-CORE----------------------- " | lolcat
 echo -e ""
@@ -19,6 +20,8 @@ echo -e "   \e[032;1mCity      : $CITY"  | lolcat
 echo -e "   \e[032;1mIP VPS    : $IPVPS"  | lolcat
 echo -e "   \e[032;1mREGION    : $WKT"  | lolcat
 echo -e "   \e[032;1mDOMAIN    : $DOMAIN"  | lolcat
+echo -e ""
+echo -e "   \e[032;1mSC Ver.   : $VER"  | lolcat
 echo -e ""
 echo -e "   -------------------------MENU OPTIONS------------------------" | lolcat
 echo -e ""
