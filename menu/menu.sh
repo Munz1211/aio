@@ -8,7 +8,7 @@ ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 IPVPS=$(curl -s ipinfo.io/ip )
 WKT=$(curl -s ipinfo.io/timezone )
-DOMAIN=$(cat /var/lib/premium-script/ipvps.conf)
+DOMAIN=$(cat /root/domain )
 
 echo -e "   -------------------------SPEK-VPS-CORE----------------------- " | lolcat
 echo -e ""
