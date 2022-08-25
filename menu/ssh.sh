@@ -13,7 +13,6 @@ echo -e " 1   Add User SSH Account" | lolcat
 echo -e " 2   Cek User SSH Account" | lolcat
 echo -e " 3   Del User SSH Account" | lolcat
 echo -e " 4   Renew User SSH Account" | lolcat
-echo -e " 5   Member User SSH Account" | lolcat
 echo -e ""
 echo -e "═════════════════════════════════════════" | lolcat
 echo -e " x)   MENU" | lolcat
@@ -33,9 +32,6 @@ hapus
 ;;
 4)
 renew
-;;
-5)
-member
 ;;
 x)
 exit
