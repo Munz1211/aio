@@ -160,7 +160,7 @@ cat <<'mySiteOvpn' > /home/vps/public_html/index.html
       <center>
       <center>
       <meta charset="utf-8" />
-      <title>GEO PROJECT CONFIG</title>
+      <title>OVPN CONFIG</title>
       <meta name="viewport" content="width=device-width" />
       <div class="container padded" id="dl-clients">
    <body>
