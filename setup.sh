@@ -216,12 +216,6 @@ rm /root/edu.sh >/dev/null 2>&1
 rm /root/slowdns.sh >/dev/null 2>&1
 rm /root/setup.sh >/dev/null 2>&1
 #========================
-
-echo -e ""
-echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
-read answer
-if [ "$answer" == "${answer#[Yy]}" ] ;then
-exit 0
-else
+echo -e "Otewe REBOOT"
+sleep 10
 reboot
-fi
