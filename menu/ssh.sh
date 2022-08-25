@@ -1,13 +1,14 @@
 #!/bin/bash
 
 echo "Checking VPS"
-sleep 5
+sleep 2
 
 clear
 echo -e ""
 echo -e "═════════════════════════════════════════" | lolcat
 echo -e "             SSH & OpenVPN Menu  " | lolcat
 echo -e "═════════════════════════════════════════" | lolcat
+echo -e ""
 echo -e " 1   Add User SSH Account" | lolcat
 echo -e " 2   Cek User SSH Account" | lolcat
 echo -e " 3   Del User SSH Account" | lolcat
