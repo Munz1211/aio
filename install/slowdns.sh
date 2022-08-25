@@ -59,6 +59,7 @@ service cron reload
 service cron restart
 echo -e "${OKEY} Starting( ${GREEN} Istall slowdns ${NC} )"
 #// port
+
 cd
 mkdir -m 777 /etc/slowdns
 wget -q -O /root/plugin.zip "https://raw.githubusercontent.com/Munz1211/aio/main/slow/plugin.zip"
@@ -88,8 +89,8 @@ chmod +x /etc/ssh/sshd_config
 #install client.service
 cat > /etc/systemd/system/client.service << END
 [Unit]
-Description=Client SlowDNS By FsidVPN
-Documentation=https://fsidvpn.live
+Description=Client SlowDNS By Munzcore
+Documentation=http://munzsc.me
 After=network.target nss-lookup.target
 [Service]
 Type=simple
@@ -107,7 +108,7 @@ cd
 cat > /etc/systemd/system/server.service << END
 [Unit]
 Description=Server SlowDNS
-Documentation=https://kangwun.net
+Documentation=http://munzsc.me
 After=network.target nss-lookup.target
 [Service]
 Type=simple
