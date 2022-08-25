@@ -123,14 +123,12 @@ wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/slowdns.sh"
 clear
 
 cat> /root/.profile << END
-
 clear
 sleep 1
 clear
 neofetch --ascii_distro kali
-echo -e \" - Script Mod By Munz Core\" | lolcat
-echo -e \"\x1b[96m - Silahkan Ketik\x1b[m \x1b[92mMENU\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"
-
+echo -e "Script Mod By Munz Core" | lolcat
+echo -e "Silahkan Ketik ( MENU ) Untuk Melihat daftar Perintah" | lolcat
 END
 
 clear
