@@ -289,30 +289,44 @@ netfilter-persistent reload
 
 # download script
 cd /usr/local/sbin
+#ssh
 wget -O addssh "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addssh.sh"
+wget -O cek "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/cek.sh"
 wget -O hapus "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/hapus.sh"
 wget -O renew "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/renew.sh"
-wget -O cek "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/cek.sh"
+
+chmod +x addssh
+chmod +x cek
+chmod +x hapus
+chmod +x renew
+
+#system
 wget -O addhost "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addhost.sh"
 wget -O speedtest "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/speedtest_cli.py"
 wget -O xp "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/xp.sh"
 wget -O asu "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/asu.sh"
-wget -O menu "https://raw.githubusercontent.com/Munz1211/aio/main/menu/menu.sh"
 wget -O sshws "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/sshws.sh"
 wget -O running "https://raw.githubusercontent.com/Munz1211/aio/main/file/running.sh"
-chmod +x addssh
-chmod +x menu
-chmod +x hapus
-chmod +x renew
-chmod +x cek
+
 chmod +x addhost
 chmod +x speedtest
 chmod +x xp
 chmod +x asu
 chmod +x sshws
 chmod +x running
-cd
 
+#menu
+wget -O menu "https://raw.githubusercontent.com/Munz1211/aio/main/menu/menu.sh"
+wget -O menu1 "https://raw.githubusercontent.com/Munz1211/aio/main/menu/menu1.sh"
+wget -O ssh "https://raw.githubusercontent.com/Munz1211/aio/main/menu/ssh.sh"
+wget -O v2ray "https://raw.githubusercontent.com/Munz1211/aio/main/menu/v2ray.sh"
+
+chmod +x menu
+chmod +x menu1
+chmod +x ssh
+chmod +x v2ray
+
+cd
 
 cat > /etc/cron.d/re_otm <<-END
 SHELL=/bin/sh
