@@ -400,7 +400,7 @@ rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/ssh-vpn.sh
 rm -f /root/bbr.sh
-rm -f /root/ddos-deflate
+rm -rf /root/ddos-deflate
 rm -f /root/ddos.zip
 
 # finihsing
