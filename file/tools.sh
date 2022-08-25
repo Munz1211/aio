@@ -53,9 +53,8 @@ rm -rf /root/vnstat-2.6 >/dev/null 2>&1
 fi
 
 sudo apt install -y libnss3-dev libnspr4-dev pkg-config libpam0g-dev libcap-ng-dev libcap-ng-utils libselinux1-dev libcurl4-nss-dev flex bison make libnss3-tools libevent-dev xl2tpd pptpd
-
-yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 clear
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "Dependencies successfully installed..."
 sleep 10
 clear
