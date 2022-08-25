@@ -305,14 +305,12 @@ wget -O addhost "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addhost
 wget -O speedtest "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/speedtest_cli.py"
 wget -O xp "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/xp.sh"
 wget -O asu "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/asu.sh"
-wget -O sshws "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/sshws.sh"
 wget -O running "https://raw.githubusercontent.com/Munz1211/aio/main/file/running.sh"
 
 chmod +x addhost
 chmod +x speedtest
 chmod +x xp
 chmod +x asu
-chmod +x sshws
 chmod +x running
 
 #menu
