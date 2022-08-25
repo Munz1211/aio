@@ -291,7 +291,6 @@ netfilter-persistent reload
 cd /usr/local/sbin
 wget -O addssh "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addssh.sh"
 wget -O hapus "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/member.sh"
 wget -O renew "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/renew.sh"
 wget -O cek "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/cek.sh"
 wget -O addhost "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addhost.sh"
@@ -304,7 +303,6 @@ wget -O running "https://raw.githubusercontent.com/Munz1211/aio/main/file/runnin
 chmod +x addssh
 chmod +x menu
 chmod +x hapus
-chmod +x member
 chmod +x renew
 chmod +x cek
 chmod +x addhost
