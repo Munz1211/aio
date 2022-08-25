@@ -6,7 +6,6 @@ clear
 
 domen=`cat /root/domain`
 
-portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
 wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
 
 read -p "Username : " Login
@@ -44,7 +43,6 @@ echo -e " Host            : $domen" | lolcat
 echo -e " OpenSSH         : $opensh" | lolcat
 echo -e " Dropbear        : $db" | lolcat
 echo -e " SSH-SLOW-DNS    : 53" | lolcat
-echo -e " SSH-WS          : $portsshws" | lolcat
 echo -e " SSH-SSL-WS      : $wsssl" | lolcat
 echo -e " SSL/TLS         : $ssl" | lolcat
 echo -e " SSH-WS OVPN     : 2086" | lolcat
