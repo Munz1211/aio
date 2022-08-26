@@ -9,7 +9,7 @@ DOMAIN=munsc.me
 domen=$( cat /root/domain )
 
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
-NS_DOMAIN=ns.${sub}
+NS_DOMAIN=ns-${sub}
 
 hasil=${NS_DOMAIN}.${domen}
 CF_ID=mbahkoclok22@gmail.com
