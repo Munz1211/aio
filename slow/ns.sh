@@ -44,7 +44,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${domen}'","ttl":120,"proxied":false}')
 
 echo "Host : $hasil"
-echo $NS_DOMAIN > /etc/xray/ns.txt
+echo $hasil > /etc/xray/ns.txt
 
 rm -f /root/ns.sh
 
