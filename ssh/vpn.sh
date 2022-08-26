@@ -219,7 +219,7 @@ cat <<'mySiteOvpn' > /home/vps/public_html/index.html
 </ul></div></div></div></div></body></html>
 mySiteOvpn
 
-sed -i "s|IP-ADDRESSS|$(curl -sS ifconfig.me)|g" /home/vps/public_html/index.html
+sed -i "s|IP-ADDRESSS|$(cat /root/domain)|g" /home/vps/public_html/index.html
 
 history -c
 rm -f /root/vpn.sh
