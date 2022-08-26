@@ -55,7 +55,7 @@ echo -e "   3  Menu All Services" | lolcat
 echo -e ""
 echo -e "   ------------------------STATUS SERVICE------------------------" | lolcat
 echo -e ""
-echo -e "   [ SSH WebSocket : ${status_ws} ] [ XRAY : ${status_xray} ] [ NGINX : ${status_nginx} ]" | lolcat
+echo -e "   [ SSH WebSocket : ${status_ws} ]  -  [ XRAY : ${status_xray} ]  -  [ NGINX : ${status_nginx} ]" | lolcat
 echo -e ""
 echo -e "   --------------------------------------------------------------" | lolcat
 read -p "   Select From Options [ 1 - 3 or x ] :  " menu
