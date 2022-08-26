@@ -44,9 +44,9 @@ echo -e " OpenSSH         : $opensh" | lolcat
 echo -e " Dropbear        : $db" | lolcat
 echo -e " SSH-SLOW-DNS    : 53" | lolcat
 echo -e " SSH-SSL-WS      : $wsssl" | lolcat
-echo -e " SSL/TLS         : $ssl" | lolcat
+echo -e " SSL/TLS         :$ssl" | lolcat
 echo -e " SSH-WS OVPN     : 2086" | lolcat
-echo -e " Port Squid      : $sqd" | lolcat
+echo -e " Port Squid      :$sqd" | lolcat
 echo -e " UDPGW           : 7100-7300" | lolcat
 echo -e " ━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e " OpenVPN Config  : http://$domen:81/" | lolcat
