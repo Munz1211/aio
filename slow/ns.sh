@@ -9,8 +9,9 @@ DOMAIN=munsc.me
 domen=$( cat /root/domain )
 
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
-NS_DOMAIN=ns.${sub}.${domen}
+NS_DOMAIN=ns.${sub}
 
+hasil=${NS_DOMAIN}.${domen}
 CF_ID=mbahkoclok22@gmail.com
 CF_KEY=bacbaf2dd9f9808ce5b1fcf562d137175e7d2
 
@@ -42,7 +43,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${domen}'","ttl":120,"proxied":false}')
 
-echo "Host : $NS_DOMAIN"
+echo "Host : $hasil"
 echo $NS_DOMAIN > /etc/xray/ns.txt
 
 rm -f /root/ns.sh
