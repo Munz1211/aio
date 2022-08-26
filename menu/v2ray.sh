@@ -20,7 +20,7 @@ echo -e "\e[1;32m═════════════════════
 echo -e " x)   MENU" | lolcat
 echo -e "\e[1;32m═══════════════════════════════════════" | lolcat
 echo -e ""
-read -p "     Please Input Number  [1-4 or x] :  "  v2ray
+read -p "     Please Input Number  [ 1 - 6 or x ] :  "  v2ray
 echo -e ""
 case $v2ray in
 1)
