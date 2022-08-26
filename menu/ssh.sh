@@ -18,7 +18,7 @@ echo -e "═══════════════════════�
 echo -e " x)   MENU" | lolcat
 echo -e "═════════════════════════════════════════" | lolcat
 echo -e ""
-read -p "     Please Input Number  [ 1 - 5 or x ] :  "  ssh
+read -p "     Please Input Number  [ 1 - 4 or x ] :  "  ssh
 echo -e ""
 case $ssh in
 1)
