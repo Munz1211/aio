@@ -11,6 +11,30 @@ WKT=$(curl -s ipinfo.io/timezone )
 DOMAIN=$(cat /root/domain )
 VER=$(cat /opt/.ver )
 
+# // SSH Websocket Proxy
+ssh_ws=$( systemctl status ws-stunnel | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $ssh_ws == "running" ]]; then
+    status_ws="${GREEN}ON${NC}"
+else
+    status_ws="${RED}OFF${NC}"
+fi
+
+# // nginx
+nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $nginx == "running" ]]; then
+    status_nginx="${GREEN}ON${NC}"
+else
+    status_nginx="${RED}OFF${NC}"
+fi
+
+# // SSH Websocket Proxy
+xray=$( systemctl status xray | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $xray == "running" ]]; then
+    status_xray="${GREEN}ON${NC}"
+else
+    status_xray="${RED}OFF${NC}"
+fi
+
 echo -e "   -------------------------SPEK-VPS-CORE----------------------- " | lolcat
 echo -e ""
 echo -e "   \e[032;1mCPU CORE  : $cores"  | lolcat
@@ -28,6 +52,10 @@ echo -e ""
 echo -e "   1  SSH & OpenVPN Menu" | lolcat
 echo -e "   2  XRAY CORE Menu" | lolcat
 echo -e "   3  Menu All Services" | lolcat
+echo -e ""
+echo -e "   ------------------------STATUS SERVICE------------------------" | lolcat
+echo -e ""
+echo -e "   [ SSH WebSocket : ${status_ws} ] [ XRAY : ${status_xray} ] [ NGINX : ${status_nginx} ]"
 echo -e ""
 read -p "   Select From Options [ 1 - 3 or x ] :  " menu
 echo -e ""
