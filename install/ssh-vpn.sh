@@ -301,13 +301,11 @@ chmod +x hapus
 chmod +x renew
 
 #system
-wget -O addhost "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/addhost.sh"
 wget -O speedtest "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/speedtest_cli.py"
 wget -O xp "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/xp.sh"
 wget -O asu "https://raw.githubusercontent.com/Munz1211/aio/main/ssh/asu.sh"
 wget -O running "https://raw.githubusercontent.com/Munz1211/aio/main/file/running.sh"
 
-chmod +x addhost
 chmod +x speedtest
 chmod +x xp
 chmod +x asu
