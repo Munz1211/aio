@@ -4,6 +4,7 @@ clear
 echo "Checking VPS"
 sleep 2
 
+clear
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
