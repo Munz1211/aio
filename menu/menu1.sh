@@ -4,6 +4,7 @@ clear
 echo "Checking VPS"
 sleep 2
 
+clear
 echo -e "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
 echo -e "                             SYSTEM MENU\e[m" | lolcat 
 echo -e "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
