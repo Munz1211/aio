@@ -1,6 +1,8 @@
 #!/bin/bash
 
 clear
+echo "Checking VPS"
+sleep 2
 
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
