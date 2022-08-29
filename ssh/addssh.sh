@@ -19,8 +19,6 @@ opensh=`cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{prin
 db=`cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $1,$2}'`
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
-ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 
 sleep 1
 clear
@@ -31,11 +29,11 @@ echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 echo -e " ━━━━━━━━━━━━━━━" | lolcat
 echo -e " SSH Account    " | lolcat
 echo -e " ━━━━━━━━━━━━━━━" | lolcat
+echo -e " IP              : $IP" | lolcat
+echo -e " Host            : $domen" | lolcat
 echo -e " Username        : $Login" | lolcat
 echo -e " Password        : $Pass" | lolcat
 echo -e " ━━━━━━━━━━━━━━━"
-echo -e " IP              : $IP" | lolcat
-echo -e " Host            : $domen" | lolcat
 echo -e " OpenSSH         : $opensh" | lolcat
 echo -e " Dropbear        : $db" | lolcat
 echo -e " SSH-SLOW-DNS    : 53" | lolcat
