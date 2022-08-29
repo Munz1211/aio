@@ -13,8 +13,6 @@ read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
 
 IP=$(curl -sS ifconfig.me);
-NS=$( cat /etc/xray/ns.txt )
-PUB=$( cat /etc/slowdns/server.pub )
 
 ossl=`cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $6}'`
 opensh=`cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{print $1}'`
@@ -35,8 +33,6 @@ echo -e " SSH Account    " | lolcat
 echo -e " ━━━━━━━━━━━━━━━" | lolcat
 echo -e " Username        : $Login" | lolcat
 echo -e " Password        : $Pass" | lolcat
-echo -e " Host Slowdns    : ${NS}" | lolcat
-echo -e " Pub Key         : ${PUB}" | lolcat
 echo -e " ━━━━━━━━━━━━━━━"
 echo -e " IP              : $IP" | lolcat
 echo -e " Host            : $domen" | lolcat
