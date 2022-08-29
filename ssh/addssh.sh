@@ -6,6 +6,7 @@ clear
 echo "Checking VPS"
 sleep 2
 
+clear
 read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
