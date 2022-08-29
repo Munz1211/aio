@@ -1,8 +1,9 @@
 #!/bin/bash
 
 clear
-echo " "
-echo " "
+echo "Checking VPS"
+sleep 2
+clear
 
 if [ -e "/var/log/auth.log" ]; then
         LOG="/var/log/auth.log";
