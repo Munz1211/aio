@@ -107,14 +107,6 @@ echo -e "$green      Install SSH / WS EDU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
 wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/edu.sh" && chmod +x edu.sh && ./edu.sh
-
-clear
-#install
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install SSH / SLOWDNS               $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 5
-wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/slowdns.sh" && chmod +x slowdns.sh && ./slowdns.sh
 clear
 
 cat> /root/.profile << END
@@ -159,7 +151,6 @@ echo ""
 echo "   >>> Service & Port"  | tee -a log-install.txt
 echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - SSH SSL Websocket       : 443" | tee -a log-install.txt
-echo "   - SSH Slow DNS            : 53" | tee -a log-install.txt
 echo "   - Stunnel4                : 777" | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143" | tee -a log-install.txt
 echo "   - Squid Proxy             : 3128, 8080"  | tee -a log-install.txt
@@ -203,7 +194,6 @@ rm /root/ssh-vpn.sh >/dev/null 2>&1
 rm /root/ins-xray.sh >/dev/null 2>&1
 rm /root/insshws.sh >/dev/null 2>&1
 rm /root/edu.sh >/dev/null 2>&1
-rm /root/slowdns.sh >/dev/null 2>&1
 rm /root/setup.sh >/dev/null 2>&1
 #========================
 echo -e ""
