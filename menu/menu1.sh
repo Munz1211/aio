@@ -1,6 +1,8 @@
 #!/bin/bash
 
-clear 
+clear
+echo "Checking VPS"
+sleep 2
 
 echo -e "  \e[1;32m------------------------------------------------------------\e[m" | lolcat
 echo -e "                             SYSTEM MENU\e[m" | lolcat 
