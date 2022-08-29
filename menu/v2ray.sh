@@ -3,7 +3,6 @@
 clear
 echo "Checking VPS"
 sleep 2
-clear
 
 clear
 echo -e ""
