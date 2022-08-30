@@ -1,7 +1,13 @@
 #!/bin/bash
-domain=$(cat /root/domain)
+
 
 clear
+echo "Checking VPS"
+sleep 2
+
+clear
+
+domain=$(cat /root/domain)
 
 echo -e " ━━━━━━━━━━━━━━━━━ " | lolcat
 echo -e " Add Vless Account " | lolcat
