@@ -15,7 +15,6 @@ clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "Install warna succes"
-echo -e "ketik menu untuk melihat hasil"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 sleep 5
