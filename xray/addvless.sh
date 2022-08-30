@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 clear
 echo "Checking VPS"
 sleep 2
