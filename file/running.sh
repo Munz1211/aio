@@ -104,7 +104,7 @@ clear
 clear && clear && clear
 clear;clear;clear
 
-echo -e "----------------------------------------------------------" | lolcat
+echo -e "---------------------------------------------------------" | lolcat
 echo -e "                ( STATUS SERVICE INFORMATION )            " | lolcat
 echo -e "----------------------------------------------------------" | lolcat
 echo ""
