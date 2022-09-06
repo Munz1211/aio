@@ -15,7 +15,6 @@ echo -e "[ ${green}INFO${NC} ] Start "
 sleep 0.5
 systemctl stop nginx
 domain=$(cat /root/domain | cut -d'=' -f2)
-domainlama=$(cat /root/domain)
 
 Cek=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
 
