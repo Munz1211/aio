@@ -9,6 +9,9 @@ green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 
 #======================================
 
+sudo apt update
+sudo apt upgrade -y
+
 cd /root
 
 #System version number
