@@ -85,8 +85,8 @@ chmod +x /usr/local/bin/ws-ovpn
 # Installing Service
 cat > /etc/systemd/system/ws-ovpn.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
-Documentation=https://t.me/geovpn
+Description=Python Proxy Mod By munzcore
+Documentation=https://munsc.me
 After=network.target nss-lookup.target
 
 [Service]
