@@ -14,7 +14,6 @@ echo -e "   2    Reboot VPS" | lolcat
 echo -e "   3    Speedtest VPS" | lolcat
 echo -e "   4    Running All Service" | lolcat
 echo -e "   5    Add Host Domain" | lolcat
-echo -e "   6    Restart Service" | lolcat
 echo -e ""
 echo -e "   x    Back To Menu" | lolcat
 echo -e ""
@@ -35,9 +34,6 @@ running
 ;;
 5)
 addhost
-;;
-6)
-xp
 ;;
 x)
 exit
