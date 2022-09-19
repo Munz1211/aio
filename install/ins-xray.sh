@@ -17,7 +17,7 @@ sleep 3
 echo -e ""
 date
 echo ""
-domain=$(cat /root/domain)
+domain=$(cat /home/domain)
 sleep 1
 mkdir -p /etc/xray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
