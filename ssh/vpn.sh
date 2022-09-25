@@ -150,7 +150,7 @@ systemctl start openvpn
 # Delete script
  
 cd /home/vps/public_html/
-zip cfg.zip tcp.ovpn udp.ovpn ssl.ovpn
+zip tcp.ovpn udp.ovpn ssl.ovpn
 cd
 cat <<'mySiteOvpn' > /home/vps/public_html/index.html
 <!DOCTYPE html>
@@ -158,65 +158,65 @@ cat <<'mySiteOvpn' > /home/vps/public_html/index.html
    <!-- Simple OVPN Download site by Munz-Core -->
    <head>
       <center>
-      <center>
-      <meta charset="utf-8" />
-      <title>OVPN CONFIG</title>
-      <meta name="viewport" content="width=device-width" />
-      <div class="container padded" id="dl-clients">
+         <center>
+            <meta charset="utf-8" />
+            <title>File Config OVPN</title>
+            <meta name="viewport" content="width=device-width" />
+            <div class="container padded" id="dl-clients">
    <body>
-   <meta name="description" content="MyScriptName Server" />
-   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-   <meta name="theme-color" content="#000000" />
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
-   <div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;">
-   <div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"></img><div class="mask rgba-white-slight"></div></div>
-   <div class="card"><div class="card-body"><h5 class="card-title"><span class="badge light-blue darken-4">CONFIG OVPN LIST</span></h5><br /><ul class="list-group"><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> Config OVPN Protocol TCP-1194</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/tcp.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br/><small> Config OVPN Protocol UDP-2200</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/udp.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> Config OVPN Protocol Ssl-442</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/ssl.ovpn" style="float:center;"><i class="fa fa-download"></i> Download</a></li><li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p><span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> ALL.zip</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/cfg.zip" style="float:center;"><i class="fa fa-download"></i> Download</a></li></ul>
-   </div></div></div></div>
+      <meta name="description" content="MyScriptName Server" />
+      <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+      <meta name="theme-color" content="#000000" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+      <div class="container justify-content-center" style="margin-top:1em; margin-bottom:1em;">
+         <div class="col-md">
+            <div class="view">
+               <img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" style="width:500px; height:378px; float:left;" class="card-img-top">
+               <div class="card">
+                  <h4 class="card-title"></h4>
+                  <span class="badge light-blue darken-4">CONFIG OVPN LIST</span>
+                  </img>
+                  <div class="mask rgba-white-slight"></div>
+               </div>
+               <br />
+               <ul class="list-group" style="width:500px; height:100px;">
+                  <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
+                     <p>
+                        <span class="badge light-blue darken-4">Android/iOS/PC/Modem</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <span class="badge light-blue darken-4">Android/iOS/PC/Modem</span>
+                        <br />
+                        <br />
+                        <small>&nbsp;&nbsp;Config OVPN Protocol TCP-1194</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small>Config OVPN Protocol UDP-2200</small>
+                     <p>
+                        <a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/tcp.ovpn" style="float:center;">
+                           <i class="fa fa-download"></i> Download </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/udp.ovpn" style="float:center;">
+                           <i class="fa fa-download"></i> Download </a>
+                  </li>
+                  <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
+                     <p>
+                        <span class="badge light-blue darken-4">Android/iOS/PC/Modem</span>
+                        <br />
+                        <br />
+                        <small>Config OVPN Protocol Ssl-442</small>
+                     </p>
+                     <a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESSS:81/ssl.ovpn" style="float:center;">
+                        <i class="fa fa-download"></i> Download </a>
+                  </li>
+                  <style type="text/css">
+                     body {
+                        font-family: Verdana, Arial, Helvetica, sans-serif;
+                        font-size: 14px;
+                        background-color: black;
+                     }
+                  </style>
+               </ul>
+            </div>
+         </div>
+      </div>
+      </div>
    </body>
-   <style type="text/css">
-   body {
-   font-family: Verdana, Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   color: black;
-   background-color: black;
-   }
-   h1 {
-   color: green;
-   font-size: 24px;
-   text-align: center;
-   padding-bottom: 0;
-   margin-bottom: 0;
-   }
-   p.info {
-   text-align: center;
-   font-size: 12px;
-   }
-   .status0 {
-   background: #ebb;
-   }
-   .status1 {
-   background: lime;
-   }
-   table {
-   #border: medium solid black;
-   margin: 0 auto;
-   border-collapse: collapse;
-   }
-   th {
-   background: black;
-   color: white;
-   }
-   tr {
-   border-bottom: 1px solid #212223;
-   }
-   td {
-   padding: 0px 10px 0px 10px;
-   }
-   </style>
 </html>
-</ul></div></div></div></div></body></html>
 mySiteOvpn
 
 sed -i "s|IP-ADDRESSS|$(cat /root/domain)|g" /home/vps/public_html/index.html
