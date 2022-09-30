@@ -219,6 +219,7 @@ cat <<'mySiteOvpn' > /home/vps/public_html/index.html
 </html>
 mySiteOvpn
 
+
 sed -i "s|IP-ADDRESSS|$(cat /root/domain)|g" /home/vps/public_html/index.html
 
 history -c
