@@ -83,15 +83,10 @@ clear
 echo -e ""
 read -p "Input Your Domain : " domain
 echo -e ""
-domain=$( echo $domain | sed 's/ //g' );
-if [[ $domain == "" ]]; then
-clear;
-echo -e "${ERROR} No Input Detected !";
-exit 1;
-fi
+
 # // Input Domain To VPS
 echo $domain > /root/domain
-domain=$( cat root/domain );
+domain=$( cat /root/domain );
 
 # // Success
 echo -e "${OKEY} Your Domain : $domain";
