@@ -73,11 +73,31 @@ wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/file/tools.sh" ; ch
 
 clear
 #install Cloudflare
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install Cloudflare   $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#echo -e "$green      Install Cloudflare   $NC"
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
-wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/cf.sh" && chmod +x cf.sh && ./cf.sh
+#wget -q "https://raw.githubusercontent.com/Munz1211/aio/main/install/cf.sh" && chmod +x cf.sh && ./cf.sh
+
+clear
+echo -e ""
+read -p "Input Your Domain : " domain
+echo -e ""
+domain=$( echo $domain | sed 's/ //g' );
+if [[ $domain == "" ]]; then
+clear;
+echo -e "${ERROR} No Input Detected !";
+exit 1;
+fi
+# // Input Domain To VPS
+echo $domain > /root/domain
+domain=$( cat root/domain );
+
+# // Success
+echo -e "${OKEY} Your Domain : $domain";
+sleep 2;
+clear;
+sleep 5
 
 clear
 #install ssh ovpn
